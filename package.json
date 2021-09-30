@@ -1,0 +1,48 @@
+{
+  "name": "@oakfinch/node-utils",
+  "version": "1.0.0",
+  "description": "Node utility library with enhanced TypeScript support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "build": "rm -rf dist; tsc",
+    "build:docs": "typedoc",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "pre-push": "npm run lint; npm run typecheck; npm run test; npm run build:docs; git add ./docs/*; git commit -m 'auto-updating docs pre-push' || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oakfinch/node-utils.git"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Nate Volker <natevolker@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oakfinch/node-utils/issues"
+  },
+  "homepage": "https://github.com/oakfinch/node-utils#readme",
+  "devDependencies": {
+    "@microsoft/tsdoc": "^0.13.2",
+    "@oakfinch/ts-extra": "^1.0.4",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-plugin-import": "^2.24.2",
+    "husky": "^7.0.2",
+    "jest": "^27.2.4",
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.22.4",
+    "typescript": "^4.4.3"
+  }
+}
