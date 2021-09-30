@@ -1,1 +1,2 @@
-export * from './last';
+export * from './exec';
+export * from './tail';
