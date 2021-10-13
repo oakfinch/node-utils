@@ -1,13 +1,28 @@
 import { ChildProcess } from 'child_process';
-import type { AnyArray } from '@oakfinch/ts-extra';
 import { EVENTS } from './constants';
 
+/**
+ * Takes in a function that returns a child process, and returns a function
+ * that returns an object that combines that same child process with
+ * a promise that resolves to the string value of stdout when that
+ * process exits.
+ */
 export function promisifyChildProcess<
-  T extends (...args: AnyArray) => ChildProcess,
->(fn: T): (...args: Parameters<T>) => (Promise<string> & ChildProcess);
-export function promisifyChildProcess(child: ChildProcess): (Promise<string> & ChildProcess);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  TArgs extends any[],
+  TReturn extends ChildProcess,
+  T extends (...args: TArgs) => TReturn,
+>(fn: T): (...args: TArgs) => (Promise<string> & TReturn);
+/**
+ * Takes in a a child process, and returns an object that combines that same child process with
+ * a promise that resolves to the string value of stdout when that process exits.
+ */
 export function promisifyChildProcess<
-  T extends (...args: AnyArray) => ChildProcess,
+  T extends ChildProcess,
+>(child: T): (Promise<string> & T);
+export function promisifyChildProcess<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  T extends (...args: any[]) => ChildProcess,
 >(arg: T | ChildProcess): unknown {
   if (arg instanceof ChildProcess) {
     const child = arg;
