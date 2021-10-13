@@ -3,7 +3,13 @@
 name: Tests
 
 # Controls when the workflow will run
-on: [ push, pull_request ]
+on:
+  push:
+    tags-ignore:
+      - '**'
+  pull_request:
+    tags-ignore:
+      - '**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
