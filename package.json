@@ -4,6 +4,13 @@
   "description": "Node utility library with enhanced TypeScript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./git": "./dist/git/index.js",
+    "./java": "./dist/java/index.js",
+    "./json": "./dist/json/index.js",
+    "./process": "./dist/process/index.js"
+  },
   "files": [
     "dist"
   ],
@@ -14,7 +21,7 @@
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "pre-push": "npm run lint; npm run typecheck; npm run test; npm run build:docs; git add ./docs/*; git commit -m 'auto-updating docs pre-push' || true"
+    "pre-push": "npm run lint; npm run typecheck; npm run test; npm run build:docs; git add ./docs/*; git commit --amend --no-edit || true"
   },
   "repository": {
     "type": "git",

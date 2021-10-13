@@ -16,7 +16,7 @@ Node utility library with enhanced TypeScript support
 
 ------
 
-[![github](https://badgen.net/badge/icon/github?icon=github&scale=2&label=)](https://github.com/oakfinch/node-utils/) | 
+[![github](https://badgen.net/badge/icon/github?icon=github&scale=2&label=)](https://github.com/oakfinch/node-utils/) 
 [![docs](https://badgen.net/badge/%F0%9F%93%8B/documentation?scale=2)](https://oakfinch.github.io/node-utils/modules.html)
 
 ------
