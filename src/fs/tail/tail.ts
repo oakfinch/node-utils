@@ -1,5 +1,5 @@
 import { spawn, ChildProcess } from 'child_process';
-import { EVENTS } from '../process/constants';
+import { EVENTS } from '../../process/constants';
 import { LINES_FLAG, FILE_FLAG, TAIL_BIN } from './constants';
 
 /**

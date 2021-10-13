@@ -1,15 +1,17 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Node utility library with enhanced TypeScript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./git": "./dist/git/index.js",
-    "./java": "./dist/java/index.js",
-    "./json": "./dist/json/index.js",
-    "./process": "./dist/process/index.js"
+    "./*": "./dist/*/module.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["dist/*/module"]
+    }
   },
   "files": [
     "dist"
