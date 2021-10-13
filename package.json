@@ -1,6 +1,6 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node utility library with enhanced TypeScript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
