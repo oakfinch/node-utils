@@ -15,7 +15,7 @@ export const tail = (
   {
     lines = 0,
     output,
-  }: { lines: number, output?: typeof process.stdout },
+  }: { lines?: number, output?: typeof process.stdout } = {},
 ): ChildProcess => {
   const child = spawn(TAIL_BIN, [LINES_FLAG, String(lines), FILE_FLAG, file]);
 

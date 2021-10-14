@@ -65,9 +65,9 @@ export const status: (
   promisify(base.status),
   // transform the resolved value of `git status` into something more useful
   // than just the string from stdout
-  (childProcessPromise): Promise<StatusInfo> & ChildProcess => Object.assign(
-    childProcessPromise,
-    childProcessPromise
+  (childProcessPromise) => ({
+    prev: childProcessPromise,
+    next: childProcessPromise
       .then((result) => result.split('\n'))
       .then(([onBranch, comparison]) => [REGEX.ON_BRANCH.exec(onBranch)?.[1], comparison])
       .then(([branch, comparison]) => ({
@@ -87,5 +87,10 @@ export const status: (
         ...result,
         status: statuses.find((name) => result[name]),
       }) as StatusInfo),
-  ),
+  }),
+  ({ prev, next }) => Object.assign(prev, {
+    then: next.then.bind(next),
+    catch: next.catch.bind(next),
+    finally: next.finally?.bind(next),
+  }),
 );

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   mkdirSync, existsSync, writeFileSync, readFileSync,
 } from 'fs';
@@ -34,17 +35,23 @@ export const get = <T = any>(file: string): T => create(file)
   && JSON.parse(readFileSync(file, { encoding: ENCODING }));
 
 /**
- * Updates a json file.
- *
- * @param file
- * @param data
+ * Updates a json file. Deep merges `data` into the existing object.
  */
-export const update = <T, U = T>(file: string, data: T, merge = true): void => {
+export function update<T = any>(file: string, data: Partial<T>): void;
+/**
+ * Updates a json file. Deep merges `data` into the existing object.
+ */
+export function update<T = any>(file: string, data: Partial<T>, merge: true): void;
+/**
+ * Updates a json file. Overrides the existing object with `data`.
+ */
+export function update<T = any>(file: string, data: T, merge: false): void;
+export function update<T = any>(file: string, data: Partial<T>, merge = true): void {
   writeFileSync(
     file,
     format(
-      JSON.stringify(merge ? mergeObjects(get<U>(file), data) : data),
+      JSON.stringify(merge ? mergeObjects(get<T>(file), data) : data),
       { indent: '  ' },
     ),
   );
-};
+}

@@ -47,7 +47,11 @@ export function promisifyChildProcess<
       });
     });
 
-    return Object.assign(promise, child);
+    return Object.assign(child, {
+      then: promise.then.bind(promise),
+      catch: promise.catch.bind(promise),
+      finally: promise.finally?.bind(promise),
+    });
   }
 
   const fn = arg;
