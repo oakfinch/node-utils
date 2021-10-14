@@ -1,17 +1,35 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Node utility library with enhanced TypeScript support",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/cjs/index.d.ts",
   "sideEffects": false,
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js",
-    "*": {
-      "import": "./dist/esm/*/module.js",
-      "require": "./dist/cjs/*/module.js"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./fs": {
+      "import": "./dist/esm/fs/module.js",
+      "require": "./dist/cjs/fs/module.js"
+    },
+    "./git": {
+      "import": "./dist/esm/git/module.js",
+      "require": "./dist/cjs/git/module.js"
+    },
+    "./java": {
+      "import": "./dist/esm/java/module.js",
+      "require": "./dist/cjs/java/module.js"
+    },
+    "./json": {
+      "import": "./dist/esm/json/module.js",
+      "require": "./dist/cjs/json/module.js"
+    },
+    "./process": {
+      "import": "./dist/esm/process/module.js",
+      "require": "./dist/cjs/process/module.js"
     }
   },
   "typesVersions": {
