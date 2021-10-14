@@ -3,7 +3,7 @@ import {
   mkdirSync, existsSync, writeFileSync, readFileSync,
 } from 'fs';
 import { dirname } from 'path';
-import format from 'pretty-js';
+import format from 'format-json';
 import mergeObjects from 'lodash/merge';
 import { EMPTY, ENCODING } from './constants';
 
@@ -49,9 +49,6 @@ export function update<T = any>(file: string, data: T, merge: false): void;
 export function update<T = any>(file: string, data: Partial<T>, merge = true): void {
   writeFileSync(
     file,
-    format(
-      JSON.stringify(merge ? mergeObjects(get<T>(file), data) : data),
-      { indent: '  ' },
-    ),
+    format.plain(merge ? mergeObjects(get<T>(file), data) : data),
   );
 }

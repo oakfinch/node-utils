@@ -1,10 +1,10 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Node utility library with enhanced TypeScript support",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -81,7 +81,7 @@
   },
   "dependencies": {
     "@oakfinch/ts-utils": "^1.0.5",
-    "lodash": "^4.17.21",
-    "pretty-js": "^0.2.2"
+    "format-json": "^1.0.3",
+    "lodash": "^4.17.21"
   }
 }
