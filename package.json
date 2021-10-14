@@ -1,20 +1,16 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Node utility library with enhanced TypeScript support",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/cjs/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
     "*": {
-      "import": [
-        "./dist/esm/*/module.js",
-        "./dist/esm/index.js"
-      ],
-      "require": [
-        "./dist/cjs/*/module.js",
-        "./dist/cjs/index.js"
-      ]
+      "import": "./dist/esm/*/module.js",
+      "require": "./dist/cjs/*/module.js"
     }
   },
   "typesVersions": {
