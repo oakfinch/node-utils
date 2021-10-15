@@ -7,8 +7,7 @@ export const VERSION_DELIMITER = '.' as const;
 export const VERSION_DEFAULT = 0 as const;
 export const ERROR_CANT_PARSE = 'Could not parse version string' as const;
 export const REGEX_VERSION = /[^ ]* version "([^"]*)" .*/;
-
-export const enum VersionFormat {
-  major = 'major',
-  full = 'full',
-}
+export const VERSION_FORMAT = {
+  MAJOR: 'major',
+  FULL: 'full',
+} as const;

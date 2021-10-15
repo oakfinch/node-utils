@@ -6,20 +6,20 @@ import {
   COMMAND_VERSION as COMMAND,
   VERSION_DELIMITER as DELIMITER,
   VERSION_DEFAULT as DEFAULT,
-  VersionFormat,
+  VERSION_FORMAT as FORMAT,
 } from './constants';
 
 /**
  * Returns a promise that resolves to the major number of the current installed version of java.
  */
-export async function getVersion(format: VersionFormat.major, env?: any): Promise<number>;
+export async function getVersion(format: typeof FORMAT.MAJOR, env?: any): Promise<number>;
 /**
  * Returns a promise that resolves to the full version number string of the currently
  * installed version of java.
  */
-export async function getVersion(format: VersionFormat.full, env?: any): Promise<string>;
+export async function getVersion(format: typeof FORMAT.FULL, env?: any): Promise<string>;
 export async function getVersion(
-  format: VersionFormat.major | VersionFormat.full,
+  format: typeof FORMAT.MAJOR | typeof FORMAT.FULL,
   env = {},
 ): Promise<string | number> {
   const versionString = await exec(COMMAND, { env });
@@ -34,7 +34,7 @@ export async function getVersion(
       .map((s) => Number(s))
   );
 
-  return format === VersionFormat.major
+  return format === FORMAT.MAJOR
     ? major
     : [major, minor, patch].join(DELIMITER);
 }
