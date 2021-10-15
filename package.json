@@ -1,6 +1,6 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Node utility library with enhanced TypeScript support",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
