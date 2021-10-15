@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { exec } from '../process/exec';
+import { execSync } from 'child_process';
+import { AnyObject } from '@oakfinch/ts-extra';
 import { VersionParseError } from './version-parse-error';
 import {
   REGEX_VERSION as REGEX,
@@ -12,17 +12,17 @@ import {
 /**
  * Returns a promise that resolves to the major number of the current installed version of java.
  */
-export async function getVersion(format: typeof FORMAT.MAJOR, env?: any): Promise<number>;
+export function getVersion(format: typeof FORMAT.MAJOR, env?: AnyObject): number;
 /**
  * Returns a promise that resolves to the full version number string of the currently
  * installed version of java.
  */
-export async function getVersion(format: typeof FORMAT.FULL, env?: any): Promise<string>;
-export async function getVersion(
+export function getVersion(format: typeof FORMAT.FULL, env?: AnyObject): string;
+export function getVersion(
   format: typeof FORMAT.MAJOR | typeof FORMAT.FULL,
   env = {},
-): Promise<string | number> {
-  const versionString = await exec(COMMAND, { env });
+): string | number {
+  const versionString = execSync(COMMAND, { encoding: 'utf-8', env });
   const version = REGEX.exec(versionString)?.[1];
   if (!version) {
     throw new VersionParseError(versionString);
