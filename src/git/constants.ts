@@ -12,3 +12,10 @@ export const REGEX = {
   [Status.UP_TO_DATE]: /Your branch is up to date with/i,
   [Status.OUT_OF_SYNC]: /.*/i,
 } as const;
+
+export const STATUSES = [
+  Status.UP_TO_DATE,
+  Status.BEHIND,
+  Status.AHEAD,
+  Status.OUT_OF_SYNC,
+] as const;
