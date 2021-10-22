@@ -1,6 +1,6 @@
 {
   "name": "@oakfinch/node-utils",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Node utility library with enhanced TypeScript support",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -80,7 +80,7 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@oakfinch/ts-utils": "^1.0.11",
+    "@oakfinch/ts-utils": "^1.0.19",
     "format-json": "^1.0.3",
     "lodash": "^4.17.21"
   }

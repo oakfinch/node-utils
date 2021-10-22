@@ -1,6 +1,9 @@
 import { spawn, ChildProcess } from 'child_process';
-import { EVENTS } from '../../process/constants';
-import { LINES_FLAG, FILE_FLAG, TAIL_BIN } from './constants';
+import { EVENTS } from '../process/constants';
+
+export const LINES_FLAG = '-n';
+export const FILE_FLAG = '-f';
+export const TAIL_BIN = 'tail';
 
 /**
  * Follow a file using `tail`
